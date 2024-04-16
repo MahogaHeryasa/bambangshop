@@ -69,7 +69,7 @@ You can install Postman via this website: https://www.postman.com/downloads/
     -   [x] Commit: `Implement notify function in Notification service to notify each Subscriber.`
     -   [x] Commit: `Implement publish function in Program service and Program controller.`
     -   [x] Commit: `Edit Product service methods to call notify after create/delete.`
-    -   [ ] Write answers of your learning module's "Reflection Publisher-3" questions in this README.
+    -   [x] Write answers of your learning module's "Reflection Publisher-3" questions in this README.
 
 ## Your Reflections
 This is the place for you to write reflections:
@@ -94,3 +94,9 @@ This is the place for you to write reflections:
 3. Saya sudah memiliki sedikit pengalaman menggunakan aplikasi *Postman* pada mata kuliah PBP semester lalu dan sudah melakukan sedikit eksplorasi fitur-fitur yang ada. Berdasarkan pengalaman saya, aplikasi *Postman* berguna untuk melakukan pengujian pada API sehingga fungsionalitas aplikasi kita dapat dipastikan berjalan dengan lancar. Pengujian API dilakukan dengan mengirimkan *HTTP request* pada API yang dituju, dan menerima *response* yang sesuai dengan harapan kita. Menurut saya fitur yang akan membantu pada proyek kelompok maupun proyek-proyek kedepannya adalah fitur pengujian API yang mudah dan fitur *collection* yang memudahkan kita untuk mengelompokkan, menyimpan, dan berbagi *HTTP request* dalam satu tempat yang terorganisir
 
 #### Reflection Publisher-3
+
+1. Tutorial ini menggunakan variasi *Obeserver pattern* berupa *push model*. Hal ini karena *Publisher* akan mengirimkan notifikasi kepada `Subscribers` melalui `NotificationService` yang memanggil *method* `notify` setiap kali suatu produk dibuat, dihapus, atau dipublish.
+
+2. Kelebihan menggunakan *pull model* adalah *Subscriber* dapat menentukan kapan menerima data yang dikirim *Publisher*. Hal ini memberikan fleksibilitas dan kontrol penuh akan data bagi *Subscriber*. Di sisi lain, Kekurangan menggunakan *pull model* adalah perlunya *logic* tambahan di sisi *receiver* untuk mengatur masuknya notifikasi yang dilakukan oleh *Subscriber*. Selain itu, *Subscriber* yang tidak megambil data secara aktif, akan mengalami penundaan pembaharuan data.
+
+3. Jika kita tidak menggunakan *multi-threading* pada proses notifikasi, ketika terdapat banyak notifikasi yang perlu dikirimkan ke *Subscribers* secara bersamaan, maka aplikasi dapat berjalan dengan lambat karena pengiriman notifikasi dilakukan secara bergilir atau berurutan satu-persatu. Sehingga, ketika pengiriman notifikasi ke beberapa subscriber dilakukan secara bersamaan, *Subscriber* selanjutnya harus menunggu pengiriman notifikasi *Subscriber* sebelumnya. 
