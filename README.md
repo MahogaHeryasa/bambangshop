@@ -56,7 +56,7 @@ You can install Postman via this website: https://www.postman.com/downloads/
     -   [x] Commit: `Implement add function in Subscriber repository.`
     -   [x] Commit: `Implement list_all function in Subscriber repository.`
     -   [x] Commit: `Implement delete function in Subscriber repository.`
-    -   [ ] Write answers of your learning module's "Reflection Publisher-1" questions in this README.
+    -   [x] Write answers of your learning module's "Reflection Publisher-1" questions in this README.
 -   **STAGE 2: Implement services and controllers**
     -   [x] Commit: `Create Notification service struct skeleton.`
     -   [X] Commit: `Implement subscribe function in Notification service.`
@@ -77,6 +77,13 @@ This is the place for you to write reflections:
 ### Mandatory (Publisher) Reflections
 
 #### Reflection Publisher-1
+
+1. Berdasarkan pemahaman saya terhadap *observer pattern*, *Subscriber* biasanya didefinisikan sebagai *interface* untuk mendukung adanya kemungkinan beberapa implementasi konkret dari *Subcriber* dengan tipe dan cara *update* dari *Publisher* yang berbeda-beda. Hal ini menjadikan *Publisher* tidak terikat dengan *Subscriber*. Dalam kasus BambangShop, jika semua *Subscriber* memiliki perilaku dan struktur yang sama, sebuah struktur model tunggal mungkin sudah cukup, namun, jika terdapat berbagai jenis pelanggan dengan perilaku yang berbeda-beda, akan bermanfaat untuk mendefinisikan sebuah interface yang mewakili perilaku umum yang dimiliki oleh semua pelanggan. 
+
+2. Untuk menyimpan id dan url yang unik, `DashMap` lebih baik digunakan dibandingkan menggunakan `vec` karena dapat mencegah terjadinya duplikasi. Selain itu, operasi pencarian, penambahan, dan penghapusan lebih efisien pada `DashMap` yaitu sebesar O(1), sementara operasi-operasi tersbut pada `vec` memiliki tingkat efesiensi sebesar O(n). `DashMap` juga dirancang untuk keamanan konkurensi *multi-threading*, sehingga jika mengimplementasikan *multi-threading*, operasi-operasi pada DashMap secara alami thread-safe dan tidak memerlukan sinkronisasi tambahan.
+
+3. *Singleton pattern* memastikan bahwa sebuah kelas memiliki hanya satu instansi dan menyediakan titik akses global ke instansi tersebut, sehingga jika diterapkan, varibel `SUBSCRIBERS` hanya ada satu untuk kesuluruhan aplikasi. Tanpa menggunakan `DashMap` yang merupakan *thread-safety* `HashMap`, jika mengimplementaskan *multi-threading*, akan muncul isu-isu concurency dalam penerapannya. Sehingga lebih baik menggunakan `DashMap` karena `SUBSCRIBERS` akan diakses banyak *thread*. 
+
 
 #### Reflection Publisher-2
 
