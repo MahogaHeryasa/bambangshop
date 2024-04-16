@@ -63,7 +63,7 @@ You can install Postman via this website: https://www.postman.com/downloads/
     -   [x] Commit: `Implement subscribe function in Notification controller.`
     -   [x] Commit: `Implement unsubscribe function in Notification service.`
     -   [x] Commit: `Implement unsubscribe function in Notification controller.`
-    -   [ ] Write answers of your learning module's "Reflection Publisher-2" questions in this README.
+    -   [x] Write answers of your learning module's "Reflection Publisher-2" questions in this README.
 -   **STAGE 3: Implement notification mechanism**
     -   [x] Commit: `Implement update method in Subscriber model to send notification HTTP requests.`
     -   [x] Commit: `Implement notify function in Notification service to notify each Subscriber.`
@@ -86,5 +86,11 @@ This is the place for you to write reflections:
 
 
 #### Reflection Publisher-2
+
+1. Pemisahan antara `Service` dan `Repository` dari sebuah `Model` akan memisahkan tanggung jawab antara logika bisnis (`Service`) dan akses data (`Repository`). Hal ini memenuhi kaidah *clean code* karena code menjadi lebih rapih dan mudah dipamahi, serta memenuhi *Single Responsibility Principle* karena adanya pemisahan tanggung jawab yang tunggal. Dengan penerapan kaidah tersebut, sistem menjadi lebih *maintainable* dan fleksibel.
+
+2. Jika kita hanya menggunakan `Model`, maka setiap model `Program`, `Subscriber`, serta `Notification` akan memiliki banyak tanggung jawab dan menjadi lebih kompleks. Hal ini melanggar *Single Responsibility Principle* karena setiap model akan mengatur logika bisnis, akses data, dan interaksi dengan model lain secara mandiri sehingga model menjadi sangat terikat satu sama lain. Jika kita hanya menggunakan `Model`, maka secara keseluruhan aplikasi kita akan memiliki *maintainability* yang buruk.  
+
+3. Saya sudah memiliki sedikit pengalaman menggunakan aplikasi *Postman* pada mata kuliah PBP semester lalu dan sudah melakukan sedikit eksplorasi fitur-fitur yang ada. Berdasarkan pengalaman saya, aplikasi *Postman* berguna untuk melakukan pengujian pada API sehingga fungsionalitas aplikasi kita dapat dipastikan berjalan dengan lancar. Pengujian API dilakukan dengan mengirimkan *HTTP request* pada API yang dituju, dan menerima *response* yang sesuai dengan harapan kita. Menurut saya fitur yang akan membantu pada proyek kelompok maupun proyek-proyek kedepannya adalah fitur pengujian API yang mudah dan fitur *collection* yang memudahkan kita untuk mengelompokkan, menyimpan, dan berbagi *HTTP request* dalam satu tempat yang terorganisir
 
 #### Reflection Publisher-3
